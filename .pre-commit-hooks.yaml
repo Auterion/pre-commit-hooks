@@ -1,0 +1,5 @@
+- id: commitlint
+  name: commitlint
+  description: Lint commit messages
+  entry: auterion/commitlint
+  language: docker_image
