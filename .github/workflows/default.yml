@@ -15,3 +15,14 @@ jobs:
 
       - name: Run commitlint
         uses: wagoid/commitlint-github-action@v5
+
+  release-please:
+    needs: lint
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: google-github-actions/release-please-action@v3
+        with:
+          token: ${{ secrets.AUTERION_CI_ACCESS_TOKEN }}
+          release-type: simple
+          package-name: auterion-pre-commit-hooks
